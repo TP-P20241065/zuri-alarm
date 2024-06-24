@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { environment } from '../environments/environment.prod';
+import { createApi } from 'unsplash-js';
+import { environment } from 'src/environments/environment';
+// @ts-ignore
 import axios from 'axios';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [CommonModule],
 })
-export class AppComponent {
+export default class AppComponent {
   alarmImage: string = 'assets/alarm_image.png';
   private readonly defaultImage: string = 'assets/alarm_image.png';
   private readonly activeImage: string = 'assets/alarm_image2.png';
@@ -20,16 +19,16 @@ export class AppComponent {
     this.alarmImage = this.activeImage;
     const report = {
       Id: 0,
-      DateTime: new Date().toISOString(), // Asegúrate de tener la fecha y hora correctas
+      DateTime: new Date().toISOString(),
       Address: "Dentro del bus",
       Incident: "Alarma en unidad 1",
       TrackingLink: "https://maps.app.goo.gl/PsJQiVvKxLcFXiEM9",
       Image: "Imagen"
     };
 
-    const apiUrl = environment.apiUrl;
     try {
-      const response = await axios.post(apiUrl, report, {
+      const unsplashAPI= environment.UNSPLASH_API_KEY;
+      const response = await axios.post(unsplashAPI, report, {
         headers: {
           'Content-Type': 'application/json'
         }
