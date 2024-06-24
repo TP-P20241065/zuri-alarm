@@ -26,9 +26,8 @@ export class AppComponent {
       Image: "Imagen"
     };
 
-    console.log(environment.API_KEY);
     // Realiza la solicitud POST
-    fetch(environment.API_KEY, {
+    fetch(environment.apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
