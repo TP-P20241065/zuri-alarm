@@ -19,7 +19,7 @@ export default class AppComponent {
     this.alarmImage = this.activeImage;
     const report = {
       "address": "Dentro del bus",
-      "incident": "Boton de pánico",
+      "incident": "Botón de pánico",
       "trackingLink": "https://maps.app.goo.gl/PsJQiVvKxLcFXiEM9",
       "image": "Imagen",
       "unitId": environment.UNIT_ID
