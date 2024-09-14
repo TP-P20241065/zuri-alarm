@@ -18,12 +18,11 @@ export default class AppComponent {
     if (this.alarmImage == this.activeImage) return;
     this.alarmImage = this.activeImage;
     const report = {
-      Id: 0,
-      DateTime: new Date().toISOString(),
-      Address: "Dentro del bus",
-      Incident: "Alarma en unidad 1",
-      TrackingLink: "https://maps.app.goo.gl/PsJQiVvKxLcFXiEM9",
-      Image: "Imagen"
+      "address": "Dentro del bus",
+      "incident": "Boton de pánico",
+      "trackingLink": "https://maps.app.goo.gl/PsJQiVvKxLcFXiEM9",
+      "image": "Imagen",
+      "unitId": environment.UNIT_ID
     };
 
     try {
